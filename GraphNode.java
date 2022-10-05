@@ -50,10 +50,10 @@ public class GraphNode {
     public static int heuristic (int[][] cube){
         int h = 0;
 
-        for(int[] facet :cube){
+        for(int i = 0; i < 6; i++){
             HashSet<Integer> temp = new HashSet<>();
-            for(int tile : facet){
-                temp.add(tile);
+            for(int j = 0; j < 4; j++){
+                temp.add(cube[i][j]);
             }
             int colours = temp.size();
             if(colours == 4){
@@ -66,6 +66,7 @@ public class GraphNode {
                 h++;
             }
         }
+        System.out.println(h);
         return h;
     }
 
